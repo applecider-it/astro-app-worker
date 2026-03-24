@@ -1,0 +1,16 @@
+{
+	"compatibility_date": "2025-10-08",
+	"main": "src/index.ts",
+	"name": "astro-app-worker",
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_id": "0e9ff260-36cd-4295-b25f-049f8c22dc3e",
+			"database_name": "astro-app-worker-database"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
+}
