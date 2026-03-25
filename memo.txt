@@ -1,0 +1,56 @@
+
+cd ~/workspace/github/astro-app-worker/src
+
+-----------------------------------
+
+port
+
+pnpm: 8787
+
+-----------------------------------
+
+pnpm dev
+
+http://localhost:8787/
+
+
+-----------------------------------
+
+DB実行
+
+
+npx wrangler d1 execute DB --local --command "SELECT * FROM comments"
+
+npx wrangler d1 execute DB --remote --command "SELECT * FROM comments"
+
+
+マイグレーション
+
+
+npx wrangler d1 migrations apply DB --remote
+
+-----------------------------------
+
+デプロイ
+
+git push
+
+OR
+
+pnpm run deploy
+
+
+-----------------------------------
+
+動作環境
+
+
+curl -X GET http://localhost:8787/comments
+
+curl -X POST http://localhost:8787/comments/store \
+  -H "Content-Type: application/json" \
+  -d '{
+    "author": "てすと",
+    "content": "てすとてすとてすとてすと"
+  }'
+

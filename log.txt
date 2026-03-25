@@ -1,0 +1,27 @@
+
+pnpm install
+
+corepack enable
+
+corepack prepare pnpm@latest --activate
+
+npx wrangler login
+
+npx wrangler pull
+
+pnpm dev
+
+npx wrangler d1 migrations apply DB --remote
+
+pnpm run deploy
+
+npx wrangler d1 execute DB --local --command "SELECT * FROM comments"
+
+npx wrangler d1 execute DB --remote --command "SELECT * FROM comments"
+
+pnpm add hono
+
+pnpm add -D @cloudflare/workers-types
+
+
+
