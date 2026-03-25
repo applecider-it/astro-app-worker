@@ -42,7 +42,7 @@ pnpm run deploy
 
 -----------------------------------
 
-動作環境
+動作確認
 
 
 curl -X GET http://localhost:8787/comments
