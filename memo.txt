@@ -64,3 +64,25 @@ curl -X POST http://localhost:8787/comments/store \
     "content": "てすとてすとてすとてすと"
   }'
 
+-----------------------------------
+
+Cloudflare Workers
+
+ビルド設定
+
+Build command:
+
+空
+
+Deploy command:
+
+npx wrangler deploy
+
+Version command:
+
+npx wrangler versions upload
+
+Root directory:
+
+/src
+
