@@ -5,35 +5,54 @@
 
 ### コメント一覧
 
-GET
+Method: GET
 
-/comments
+URI: /comments
 
 ### コメント登録
 
-POST
+Method: POST
 
-/comments/store
+URI: /comments/store
 
-Params: author, content
+Params:
+
+| 項目名 | 内容 | 型 | 詳細 |
+|--------|--------|--------|--------|
+| author | 著者 | string |  |
+| content | 内容 | string |  |
 
 
 ### ログイン
 
-POST
+Method: POST
 
-/auth/login
+URI: /auth/login
 
-Params: email, password
+Params:
+
+| 項目名 | 内容 | 型 | 詳細 |
+|--------|--------|--------|--------|
+| email | メールアドレス | string |  |
+| password | パスワード | string |  |
 
 ### ログアウト
 
-POST
+Method: POST
 
-/auth/logout
+URI: /auth/logout
 
 ### 認証ユーザー
 
-GET
+Method: GET
 
-/auth/me
+URI: /auth/me
+
+
+## 認証
+
+セッションで管理。
+
+セッションデータは、railsみたいに、クッキーに暗号化して保存している。
+
+
