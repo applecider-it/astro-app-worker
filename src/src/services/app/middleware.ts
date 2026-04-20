@@ -1,5 +1,6 @@
 import { getCookie } from "hono/cookie"
-import { decryptSession } from "./session"
+import { decryptSession } from "./encryptSession"
+import { sessionName } from "../../config/contants"
 
 /**
  * 認証ミドルウェア
@@ -18,8 +19,8 @@ import { decryptSession } from "./session"
  *   401 Unauthorized を返す
  */
 export async function auth(c: any, next: Function) {
-  // Cookie から session という名前の値を取得
-  const token = getCookie(c, "session")
+  // Cookie から sessionName の値を取得
+  const token = getCookie(c, sessionName)
 
   // Cookie が存在しない場合は未ログイン
   if (!token) {
