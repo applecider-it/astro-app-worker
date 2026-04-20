@@ -6,7 +6,9 @@ export async function storeComment(
   author: string,
   content: string,
 ) {
-  await c.env.DB.prepare('INSERT INTO comments (author, content) VALUES (?, ?)')
-    .bind(author, content)
-    .run();
+  await c.env.DB.batch([
+    c.env.DB.prepare(
+      'INSERT INTO comments (author, content) VALUES (?, ?)',
+    ).bind(author, content),
+  ]);
 }
