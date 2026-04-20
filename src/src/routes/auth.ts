@@ -26,7 +26,7 @@ authRoute.post("/login", async (c) => {
       httpOnly: true,
       secure: true,
       path: "/",
-      sameSite: "Lax"
+      sameSite: "None"
     })
 
     return c.json({ ok: true })
