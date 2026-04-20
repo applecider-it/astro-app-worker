@@ -1,6 +1,39 @@
 # astro-app用のcloudflareワーカー
 
-## 実装内容
+## API
 
-- コメント一覧API
-- コメント登録API
+
+### コメント一覧
+
+GET
+
+/comments
+
+### コメント登録
+
+POST
+
+/comments/store
+
+Params: author, content
+
+
+### ログイン
+
+POST
+
+/auth/login
+
+Params: email, password
+
+### ログアウト
+
+POST
+
+/auth/logout
+
+### 認証ユーザー
+
+GET
+
+/auth/me
