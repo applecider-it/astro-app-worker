@@ -1,4 +1,6 @@
 
+npm install -g pnpm
+
 pnpm install
 
 corepack enable
