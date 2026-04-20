@@ -2,9 +2,11 @@ import { Hono } from "hono"
 import { setCookie, deleteCookie } from "hono/cookie"
 import { encryptSession } from "../services/app/session"
 import { auth } from "../services/app/middleware"
+import type { AppVariables } from "../types/types"
 
-export const authRoute = new Hono<{ Bindings: Env }>();
+export const authRoute = new Hono<{ Bindings: Env, Variables: AppVariables }>();
 
+// ログイン
 authRoute.post("/login", async (c) => {
   const body = await c.req.json()
 
@@ -33,10 +35,12 @@ authRoute.post("/login", async (c) => {
   return c.json({ error: "Login failed" }, 401)
 })
 
+// 認証ユーザー
 authRoute.get("/me", auth, (c) => {
   return c.json(c.get("user"))
 })
 
+// ログアウト
 authRoute.post("/logout", (c) => {
   deleteCookie(c, "session")
   return c.json({ ok: true })
