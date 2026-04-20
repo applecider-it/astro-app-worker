@@ -24,7 +24,7 @@ authRoute.post("/login", async (c) => {
 
     setCookie(c, "session", token, {
       httpOnly: true,
-      secure: false,
+      secure: true,
       path: "/",
       sameSite: "Lax"
     })
