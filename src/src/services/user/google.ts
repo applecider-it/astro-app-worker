@@ -24,7 +24,7 @@ export function setupGoogleAuth(c: Context<AppHonoType>) {
 
   const cookieOptions = {
     httpOnly: true,
-    secure: false, // local開発ならfalse
+    secure: true,
     path: '/',
     maxAge: 600,
   };
