@@ -8,7 +8,9 @@
 
 セッションデータは、railsみたいに、クッキーに暗号化して保存している。
 
-- email
+### 認証方式
+
+- email, password
 - Google認証
 
 
