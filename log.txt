@@ -52,4 +52,4 @@ DELETE FROM users;
 
 npm install arctic
 
-
+pnpm install
