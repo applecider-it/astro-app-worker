@@ -1,4 +1,4 @@
-type UserSession = {
+type AuthSession = {
   exp: number;
   user: {
     id: number;
@@ -8,7 +8,7 @@ type UserSession = {
 };
 
 type AppVariables = {
-  user: UserSession;
+  auth: AuthSession;
 };
 
 export type AppHonoType = { Bindings: Env; Variables: AppVariables };

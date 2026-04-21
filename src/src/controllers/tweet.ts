@@ -15,7 +15,7 @@ tweetRoute.get('/', async (c) => {
 
 // ツイート追加
 tweetRoute.post('/store', auth, async (c) => {
-  const { user } = c.get('user');
+  const { user } = c.get('auth');
   const { content } = await c.req.json();
 
   if (!content) {

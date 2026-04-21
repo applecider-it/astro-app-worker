@@ -29,17 +29,17 @@ export async function auth(c: any, next: Function) {
 
   try {
     // 暗号化された Cookie を復号してセッション情報取得
-    const session = await decryptSession(token)
+    const data = await decryptSession(token)
 
     // セッション期限切れチェック
     // exp はミリ秒想定（Date.now() と比較）
-    if (session.exp < Date.now()) {
+    if (data.exp < Date.now()) {
       return c.json({ error: "Expired" }, 401)
     }
 
     // 認証済みユーザー情報を Context に格納
-    // 後続処理で c.get("user") で取得可能
-    c.set("user", session)
+    // 後続処理で c.get("auth") で取得可能
+    c.set("auth", data)
 
     // 次の middleware / route handler へ進む
     await next()

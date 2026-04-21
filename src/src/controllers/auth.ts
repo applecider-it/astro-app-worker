@@ -29,7 +29,7 @@ authRoute.post('/login', async (c) => {
 
 // 認証ユーザー
 authRoute.get('/me', auth, (c) => {
-  return c.json(c.get('user'));
+  return c.json(c.get('auth'));
 });
 
 // ログアウト
