@@ -47,3 +47,9 @@ DELETE FROM user_tweets;
 DELETE FROM users;
 "
 
+-----------------------------------
+
+
+npm install arctic
+
+

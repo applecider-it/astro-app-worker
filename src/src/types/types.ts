@@ -11,4 +11,11 @@ type AppVariables = {
   auth: AuthSession;
 };
 
-export type AppHonoType = { Bindings: Env; Variables: AppVariables };
+type Bindings = {
+  GOOGLE_CLIENT_ID: string;
+  GOOGLE_CLIENT_SECRET: string;
+  GOOGLE_CALLBACK: string;
+  DB: D1Database;
+};
+
+export type AppHonoType = { Bindings: Bindings; Variables: AppVariables };

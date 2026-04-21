@@ -1,6 +1,8 @@
 import { getCookie } from "hono/cookie"
 import { decryptSession } from "./encryptSession"
 import { sessionName } from "@/config/contants"
+import type { Context } from 'hono';
+import type { AppHonoType } from '@/types/types';
 
 /**
  * 認証ミドルウェア
@@ -18,7 +20,7 @@ import { sessionName } from "@/config/contants"
  * 失敗時:
  *   401 Unauthorized を返す
  */
-export async function auth(c: any, next: Function) {
+export async function auth(c: Context<AppHonoType>, next: Function) {
   // Cookie から sessionName の値を取得
   const token = getCookie(c, sessionName)
 

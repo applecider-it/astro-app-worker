@@ -6,6 +6,7 @@ import type { AppHonoType } from '@/types/types';
 import { corsCookieOptions } from '@/services/app/cookie';
 import { execLogin } from '@/services/user/auth';
 import { sessionName } from '@/config/contants';
+import { setupGoogleAuth, getProfileByCallback } from '@/services/user/google';
 
 export const authRoute = new Hono<AppHonoType>();
 
@@ -36,4 +37,18 @@ authRoute.get('/me', auth, (c) => {
 authRoute.post('/logout', (c) => {
   deleteCookie(c, sessionName, corsCookieOptions);
   return c.json({ ok: true });
+});
+
+// グーグル認証
+authRoute.get('/google', async (c) => {
+  const url = setupGoogleAuth(c);
+
+  return c.redirect(url.toString());
+});
+
+// グーグル認証コールバック
+authRoute.get('/google/callback', async (c) => {
+  const profile = await getProfileByCallback(c);
+
+  return c.json(profile);
 });
