@@ -3,17 +3,17 @@ import { getComments } from '../services/comment/list';
 import { storeComment } from '../services/comment/edit';
 import type { AppHonoType } from '../types/types';
 
-export const commentsRoute = new Hono<AppHonoType>();
+export const commentRoute = new Hono<AppHonoType>();
 
 // コメント一覧
-commentsRoute.get('/', async (c) => {
+commentRoute.get('/', async (c) => {
   const results = await getComments(c);
 
   return c.json(results);
 });
 
 //　コメント追加
-commentsRoute.post('/store', async (c) => {
+commentRoute.post('/store', async (c) => {
   const { author, content } = await c.req.json();
 
   if (!author || !content) {

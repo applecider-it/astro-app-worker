@@ -1,7 +1,10 @@
 type UserSession = {
-  id: number;
-  email: string;
   exp: number;
+  user: {
+    id: number;
+    email: string;
+    name: string;
+  };
 };
 
 type AppVariables = {
