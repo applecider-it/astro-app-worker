@@ -79,8 +79,6 @@ OR
 pnpm run deploy
 
 
-変数はSecretにしないと、いつの間にか消えている
-
 -----------------------------------
 
 動作確認
@@ -99,7 +97,10 @@ curl -X POST http://localhost:8787/comments/store \
 
 Cloudflare Workers
 
+----
+
 ビルド設定
+
 
 Build command:
 
@@ -116,4 +117,15 @@ npx wrangler versions upload
 Root directory:
 
 /src
+
+
+----
+
+環境変数
+
+
+変数はSecretにしないと、いつの間にか消えている
+
+-----------------------------------
+
 
