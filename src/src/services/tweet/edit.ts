@@ -7,9 +7,9 @@ export async function storeTweet(
   user_id: number,
   content: string,
 ) {
-  await c.env.DB.batch([
-    c.env.DB.prepare(
-      'INSERT INTO user_tweets (user_id, content) VALUES (?, ?)',
-    ).bind(user_id, content),
-  ]);
+  await c.env.DB.prepare(
+    'INSERT INTO user_tweets (user_id, content) VALUES (?, ?)',
+  )
+    .bind(user_id, content)
+    .run();
 }
