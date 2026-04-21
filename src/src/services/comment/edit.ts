@@ -7,9 +7,12 @@ export async function storeComment(
   author: string,
   content: string,
 ) {
-  await c.env.DB.batch([
+  const result = await c.env.DB.batch([
     c.env.DB.prepare(
       'INSERT INTO comments (author, content) VALUES (?, ?)',
     ).bind(author, content),
   ]);
+  
+  console.log({result});
+  console.log({row0: result[0]});
 }

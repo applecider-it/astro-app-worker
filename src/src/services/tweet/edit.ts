@@ -7,9 +7,13 @@ export async function storeTweet(
   user_id: number,
   content: string,
 ) {
-  await c.env.DB.prepare(
+  const result = await c.env.DB.prepare(
     'INSERT INTO user_tweets (user_id, content) VALUES (?, ?)',
   )
     .bind(user_id, content)
     .run();
+  
+  console.log({result});
+
+  return result.meta.changes;
 }

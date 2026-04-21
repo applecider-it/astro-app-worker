@@ -22,7 +22,7 @@ tweetRoute.post('/store', auth, async (c) => {
     return c.text('content are required', 400);
   }
 
-  await storeTweet(c, user.id, content);
+  const count = await storeTweet(c, user.id, content);
 
-  return c.json({ status: true }, 201);
+  return c.json({ status: true, count }, 201);
 });
