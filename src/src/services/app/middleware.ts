@@ -1,6 +1,6 @@
 import { getCookie } from "hono/cookie"
 import { decryptSession } from "./encryptSession"
-import { sessionName } from "../../config/contants"
+import { sessionName } from "@/config/contants"
 
 /**
  * 認証ミドルウェア

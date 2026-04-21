@@ -1,5 +1,5 @@
 import type { Context } from 'hono';
-import type { AppHonoType } from '../../types/types';
+import type { AppHonoType } from '@/types/types';
 
 /** ツイートを追加 */
 export async function storeTweet(

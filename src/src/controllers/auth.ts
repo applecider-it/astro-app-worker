@@ -1,11 +1,11 @@
 import { Hono } from 'hono';
 import { setCookie, deleteCookie } from 'hono/cookie';
-import { encryptSession } from '../services/app/encryptSession';
-import { auth } from '../services/app/middleware';
-import type { AppHonoType } from '../types/types';
-import { corsCookieOptions } from '../services/app/cookie';
-import { execLogin } from '../services/user/auth';
-import { sessionName } from '../config/contants';
+import { encryptSession } from '@/services/app/encryptSession';
+import { auth } from '@/services/app/middleware';
+import type { AppHonoType } from '@/types/types';
+import { corsCookieOptions } from '@/services/app/cookie';
+import { execLogin } from '@/services/user/auth';
+import { sessionName } from '@/config/contants';
 
 export const authRoute = new Hono<AppHonoType>();
 

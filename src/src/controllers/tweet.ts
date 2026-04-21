@@ -1,8 +1,8 @@
 import { Hono } from 'hono';
-import { getTweets } from '../services/tweet/list';
-import { storeTweet } from '../services/tweet/edit';
-import type { AppHonoType } from '../types/types';
-import { auth } from '../services/app/middleware';
+import { getTweets } from '@/services/tweet/list';
+import { storeTweet } from '@/services/tweet/edit';
+import type { AppHonoType } from '@/types/types';
+import { auth } from '@/services/app/middleware';
 
 export const tweetRoute = new Hono<AppHonoType>();
 

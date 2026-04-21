@@ -1,5 +1,5 @@
 import type { Context } from 'hono';
-import type { AppHonoType } from '../../types/types';
+import type { AppHonoType } from '@/types/types';
 
 /** コメント一覧を返す */
 export async function getComments(c: Context<AppHonoType>) {

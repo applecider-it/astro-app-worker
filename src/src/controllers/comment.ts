@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
-import { getComments } from '../services/comment/list';
-import { storeComment } from '../services/comment/edit';
-import type { AppHonoType } from '../types/types';
+import { getComments } from '@/services/comment/list';
+import { storeComment } from '@/services/comment/edit';
+import type { AppHonoType } from '@/types/types';
 
 export const commentRoute = new Hono<AppHonoType>();
 

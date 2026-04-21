@@ -1,5 +1,5 @@
 import type { Context } from 'hono';
-import type { AppHonoType } from '../../types/types';
+import type { AppHonoType } from '@/types/types';
 
 /** ツイート一覧を返す */
 export async function getTweets(c: Context<AppHonoType>) {
