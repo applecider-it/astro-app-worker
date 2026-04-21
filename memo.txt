@@ -40,6 +40,18 @@ npx wrangler d1 execute DB --local --command "SELECT * FROM users"
 
 -----------------------------------
 
+接続
+
+npx wrangler login
+
+
+確認
+
+npx wrangler d1 execute DB --remote --command "SELECT * FROM comments"
+
+
+-----------------------------------
+
 DB実行
 
 
