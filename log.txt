@@ -40,3 +40,10 @@ npx wrangler d1 execute DB --local --command "SELECT * FROM users"
 npx wrangler d1 migrations create DB add_user_tweets_table
 
 npx wrangler d1 execute DB --local --command="SELECT name FROM sqlite_master WHERE type='table';"
+
+
+npx wrangler d1 execute DB --local --command="
+DELETE FROM user_tweets;
+DELETE FROM users;
+"
+

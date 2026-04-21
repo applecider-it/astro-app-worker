@@ -14,6 +14,9 @@ pnpm dev
 http://localhost:8787/
 
 
+http://localhost:8787/development/test
+
+
 -----------------------------------
 
 セットアップ
@@ -31,7 +34,7 @@ npx wrangler d1 migrations apply DB --local
 
 npx wrangler d1 execute DB --local --command="
 INSERT INTO users (email, name, password_hash)
-VALUES ('test@localhost.com', 'テスト', 'testtest');
+VALUES ('test@localhost.com', 'テスト', '37268335dd6931045bdcdf92623ff819a64244b53d0e746d438797349d4da578');
 "
 
 確認

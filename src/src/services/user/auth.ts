@@ -2,6 +2,8 @@ import type { Context } from 'hono';
 
 import type { AppHonoType } from '@/types/types';
 
+import { hashPassword } from '@/services/app/security';
+
 /** ログイン処理 */
 export async function execLogin(
   c: Context<AppHonoType>,
@@ -18,7 +20,7 @@ export async function execLogin(
 
   const user = results[0];
 
-  if (user.password_hash === password) {
+  if (user.password_hash === (await hashPassword(password))) {
     delete user.password_hash;
     return {
       user,
