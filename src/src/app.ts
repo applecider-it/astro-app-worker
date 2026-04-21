@@ -1,9 +1,9 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { commentsRoute } from './routes/comments';
-import { authRoute } from './routes/auth';
+import { setRoutes } from './config/routes';
+import type { AppHonoType } from './types/types';
 
-const app = new Hono<{ Bindings: Env }>();
+const app = new Hono<AppHonoType>();
 
 app.use(
   '*',
@@ -15,7 +15,6 @@ app.use(
   }),
 );
 
-app.route('/comments', commentsRoute);
-app.route('/auth', authRoute);
+setRoutes(app);
 
 export default app;

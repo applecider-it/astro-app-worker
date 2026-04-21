@@ -1,8 +1,9 @@
 import { Hono } from 'hono';
 import { getComments } from '../services/comment/list';
 import { storeComment } from '../services/comment/edit';
+import type { AppHonoType } from '../types/types';
 
-export const commentsRoute = new Hono<{ Bindings: Env }>();
+export const commentsRoute = new Hono<AppHonoType>();
 
 // コメント一覧
 commentsRoute.get('/', async (c) => {

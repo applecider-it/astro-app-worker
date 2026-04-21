@@ -24,6 +24,20 @@ npm ci
   npm install -g pnpm
 
 
+npx wrangler d1 migrations apply DB --local
+
+
+ユーザー作成
+
+npx wrangler d1 execute DB --local --command="
+INSERT INTO users (email, name, password_hash)
+VALUES ('test@localhost.com', 'テスト', 'testtest');
+"
+
+確認
+
+npx wrangler d1 execute DB --local --command "SELECT * FROM users"
+
 -----------------------------------
 
 DB実行

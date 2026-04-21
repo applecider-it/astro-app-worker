@@ -1,8 +1,9 @@
 import type { Context } from 'hono';
+import type { AppHonoType } from '../../types/types';
 
 /** コメントを追加 */
 export async function storeComment(
-  c: Context<{ Bindings: Env }>,
+  c: Context<AppHonoType>,
   author: string,
   content: string,
 ) {

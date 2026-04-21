@@ -1,9 +1,11 @@
-export type UserSession = {
-  id: number
-  email: string
-  exp: number
-}
+type UserSession = {
+  id: number;
+  email: string;
+  exp: number;
+};
 
-export type AppVariables = {
-  user: UserSession
-}
+type AppVariables = {
+  user: UserSession;
+};
+
+export type AppHonoType = { Bindings: Env; Variables: AppVariables };

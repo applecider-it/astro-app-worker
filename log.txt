@@ -26,4 +26,13 @@ pnpm add hono
 pnpm add -D @cloudflare/workers-types
 
 
+-----------------------------------
+
+
+npx wrangler d1 migrations create DB add_users_table
+
+npx wrangler d1 migrations apply DB --local
+
+
+npx wrangler d1 execute DB --local --command "SELECT * FROM users"
 
