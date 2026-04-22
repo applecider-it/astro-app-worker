@@ -1,7 +1,8 @@
 # API
 
+## 認証
 
-## ログイン
+### email認証
 
 Method: POST
 
@@ -14,39 +15,40 @@ Params:
 | email | メールアドレス | string |  |
 | password | パスワード | string |  |
 
-## ログアウト
+### ログアウト
 
 Method: POST
 
 URI: /auth/logout
 
-## 認証ユーザー
+### 認証ユーザー
 
 Method: GET
 
 URI: /auth/me
 
-## グーグル認証
+### グーグル認証
 
 Method: GET
 
 URI: /google
 
 
-## グーグル認証コールバック
+### グーグル認証コールバック
 
 Method: GET
 
 URI: /google/callback
 
+## ツイート
 
-## ツイート一覧
+### ツイート一覧
 
 Method: GET
 
 URI: /tweet
 
-## ツイート登録
+### ツイート登録
 
 Method: POST
 
@@ -58,14 +60,16 @@ Params:
 |--------|--------|--------|--------|
 | content | 内容 | string |  |
 
+## コメント
 
-## コメント一覧
+
+### コメント一覧
 
 Method: GET
 
 URI: /comment
 
-## コメント登録
+### コメント登録
 
 Method: POST
 
