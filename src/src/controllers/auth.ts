@@ -42,7 +42,7 @@ authRoute.post('/logout', (c) => {
 authRoute.get('/google', async (c) => {
   const url = setupGoogleAuth(c);
 
-  return c.redirect(url.toString());
+  return c.redirect(url);
 });
 
 // グーグル認証コールバック
@@ -55,7 +55,9 @@ authRoute.get('/google/callback', async (c) => {
   if (user) {
     await startAuth(c, user);
 
-    return c.json({ ok: true });
+    const url = c.env.APP_GOOGLE_AUTH_REDIRECT;
+
+    return c.redirect(url);
   }
 
   return c.json({ error: 'Login failed' }, 401);

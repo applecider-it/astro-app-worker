@@ -12,10 +12,13 @@ type AppVariables = {
 };
 
 type Bindings = {
+  DB: D1Database;
+
   GOOGLE_CLIENT_ID: string;
   GOOGLE_CLIENT_SECRET: string;
   GOOGLE_CALLBACK: string;
-  DB: D1Database;
+
+  APP_GOOGLE_AUTH_REDIRECT: string;
 };
 
 export type AppHonoType = { Bindings: Bindings; Variables: AppVariables };
