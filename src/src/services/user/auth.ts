@@ -1,10 +1,13 @@
 import type { Context } from 'hono';
 import { setCookie } from 'hono/cookie';
-import { encryptSession } from '@/services/app/encryptSession';
-import { sessionName } from '@/config/contants';
-import { corsCookieOptions } from '@/services/app/cookie';
 
 import type { AppHonoType } from '@/types/types';
+
+import { sessionName } from '@/config/contants';
+
+import { encryptSession } from '@/services/app/encryptSession';
+import { corsCookieOptions } from '@/services/app/cookie';
+import { prepareBind } from '@/services/app/db';
 
 import { hashPassword } from '@/services/app/security';
 
@@ -16,15 +19,12 @@ export async function execLogin(
   email: string,
   password: string,
 ) {
-  const { results } = await c.env.DB.prepare(
-    'SELECT * FROM users WHERE email = ? LIMIT 1',
-  )
-    .bind(email)
-    .all();
+  const st = prepareBind(c, 'SELECT * FROM users WHERE email = ? LIMIT 1', [
+    email,
+  ]);
+  const user = await st.first();
 
-  if (results.length === 0) return null;
-
-  const user = results[0];
+  if (!user) return null;
 
   if (user.password_hash === (await hashPassword(password))) {
     delete user.password_hash;
@@ -38,7 +38,20 @@ export async function upsertGoogle(
   c: Context<AppHonoType>,
   profile: GoogleProfile,
 ) {
-  console.log({profile})
+  console.log({ profile });
+
+  const st = prepareBind(c, 'SELECT * FROM users WHERE google_id = ? LIMIT 1', [
+    profile.id,
+  ]);
+
+  const user = await st.first();
+
+  console.log({ user });
+
+  if (user) {
+  } else {
+    console.log('new');
+  }
 }
 
 /** 認証開始 */

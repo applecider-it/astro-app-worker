@@ -1,11 +1,17 @@
 import type { Context } from 'hono';
 import type { AppHonoType } from '@/types/types';
 
+import { prepareBind } from '@/services/app/db';
+
 /** コメント一覧を返す */
 export async function getComments(c: Context<AppHonoType>) {
-  const { results } = await c.env.DB.prepare(
+  const st = prepareBind(
+    c,
     'SELECT * FROM comments ORDER BY id DESC LIMIT 10',
-  ).all();
+    [],
+  );
+
+  const { results } = await st.all();
 
   return results;
 }

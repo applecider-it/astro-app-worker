@@ -1,9 +1,13 @@
 import type { Context } from 'hono';
 import type { AppHonoType } from '@/types/types';
 
+import { prepareBind } from '@/services/app/db';
+
 /** ツイート一覧を返す */
 export async function getTweets(c: Context<AppHonoType>) {
-  const { results } = await c.env.DB.prepare(`
+  const st = prepareBind(
+    c,
+    `
     SELECT
       user_tweets.id,
       user_tweets.content,
@@ -19,7 +23,11 @@ export async function getTweets(c: Context<AppHonoType>) {
 
     ORDER BY user_tweets.id DESC
     LIMIT 10
-  `).all();
+  `,
+    [],
+  );
+
+  const { results } = await st.all();
 
   return results;
 }
