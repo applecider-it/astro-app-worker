@@ -53,3 +53,7 @@ DELETE FROM users;
 npm install arctic
 
 pnpm install
+
+npx wrangler d1 migrations create DB alter_users_table
+
+npx wrangler d1 execute DB --local --command="PRAGMA table_info(users);"

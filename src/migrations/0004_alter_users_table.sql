@@ -1,0 +1,4 @@
+-- Migration number: 0004 	 2026-04-22T02:53:35.759Z
+
+ALTER TABLE users ADD COLUMN google_id VARCHAR(255) NULL;
+ALTER TABLE users ADD COLUMN auth_type VARCHAR(50) NOT NULL DEFAULT 'email';
