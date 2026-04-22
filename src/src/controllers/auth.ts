@@ -7,8 +7,9 @@ import { sessionName } from '@/config/contants';
 
 import { auth } from '@/services/app/middleware';
 import { corsCookieOptions } from '@/services/app/cookie';
-import { execLogin, startAuth, upsertGoogle } from '@/services/user/auth';
-import { setupGoogleAuth, getProfileByCallback } from '@/services/user/google';
+import { execLogin, startAuth } from '@/services/user/auth';
+import { upsertGoogle } from '@/services/user/googleAuth';
+import { setupGoogleAuth, getProfileByCallback } from '@/services/user/googleApi';
 
 export const authRoute = new Hono<AppHonoType>();
 
@@ -50,5 +51,12 @@ authRoute.get('/google/callback', async (c) => {
 
   const user = await upsertGoogle(c, profile);
 
-  return c.json(profile);
+  console.log({user})
+  if (user) {
+    await startAuth(c, user);
+
+    return c.json({ ok: true });
+  }
+
+  return c.json({ error: 'Login failed' }, 401);
 });

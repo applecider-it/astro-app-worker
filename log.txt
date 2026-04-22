@@ -57,3 +57,10 @@ pnpm install
 npx wrangler d1 migrations create DB alter_users_table
 
 npx wrangler d1 execute DB --local --command="PRAGMA table_info(users);"
+
+npx wrangler d1 execute DB --local --command "SELECT * FROM users"
+
+
+npx wrangler d1 execute DB --local --command "DELETE FROM users WHERE auth_type = 'google'"
+
+

@@ -11,8 +11,6 @@ import { prepareBind } from '@/services/app/db';
 
 import { hashPassword } from '@/services/app/security';
 
-import type { GoogleProfile } from './google';
-
 /** ログイン処理 */
 export async function execLogin(
   c: Context<AppHonoType>,
@@ -31,27 +29,6 @@ export async function execLogin(
     return user;
   }
   return null;
-}
-
-/** Google認証ユーザーのアップサート */
-export async function upsertGoogle(
-  c: Context<AppHonoType>,
-  profile: GoogleProfile,
-) {
-  console.log({ profile });
-
-  const st = prepareBind(c, 'SELECT * FROM users WHERE google_id = ? LIMIT 1', [
-    profile.id,
-  ]);
-
-  const user = await st.first();
-
-  console.log({ user });
-
-  if (user) {
-  } else {
-    console.log('new');
-  }
 }
 
 /** 認証開始 */
