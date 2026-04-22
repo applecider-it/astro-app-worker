@@ -4,6 +4,12 @@ import type { AppHonoType } from '@/types/types';
 import { Google } from 'arctic';
 import { setCookie, getCookie } from 'hono/cookie';
 
+export type GoogleProfile = {
+  id: string;
+  email: string;
+  name: string;
+}
+
 /** Googleオブジェクト */
 function getGoogle(c: Context<AppHonoType>) {
   const google = new Google(
@@ -59,7 +65,7 @@ export async function getProfileByCallback(c: Context<AppHonoType>) {
     },
   });
 
-  const profile = await res.json();
+  const profile: GoogleProfile = await res.json();
 
   return profile;
 }
