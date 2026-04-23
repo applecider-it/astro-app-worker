@@ -14,9 +14,9 @@ type AppVariables = {
 type Bindings = {
   DB: D1Database;
 
-  GOOGLE_CLIENT_ID: string;
-  GOOGLE_CLIENT_SECRET: string;
-  GOOGLE_CALLBACK: string;
+  APP_GOOGLE_CLIENT_ID: string;
+  APP_GOOGLE_CLIENT_SECRET: string;
+  APP_GOOGLE_CALLBACK: string;
 
   APP_GOOGLE_AUTH_REDIRECT: string;
 };

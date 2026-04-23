@@ -13,9 +13,9 @@ export type GoogleProfile = {
 /** Googleオブジェクト */
 function getGoogle(c: Context<AppHonoType>) {
   const google = new Google(
-    c.env.GOOGLE_CLIENT_ID,
-    c.env.GOOGLE_CLIENT_SECRET,
-    c.env.GOOGLE_CALLBACK,
+    c.env.APP_GOOGLE_CLIENT_ID,
+    c.env.APP_GOOGLE_CLIENT_SECRET,
+    c.env.APP_GOOGLE_CALLBACK,
   );
 
   return google;
