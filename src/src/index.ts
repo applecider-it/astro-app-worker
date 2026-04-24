@@ -1,3 +1,7 @@
-import app from './app'
+import app from './app';
 
-export default app
+import { ChatRoom } from './durable-objects/ChatRoom';
+
+export { ChatRoom };
+
+export default app;

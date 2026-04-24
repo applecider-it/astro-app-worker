@@ -12,5 +12,21 @@
 	],
 	"observability": {
 		"enabled": true
-	}
+	},
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT",
+        "class_name": "ChatRoom"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": ["ChatRoom"]
+    }
+  ]
 }

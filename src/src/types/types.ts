@@ -19,6 +19,8 @@ type Bindings = {
   APP_GOOGLE_CALLBACK: string;
 
   APP_GOOGLE_AUTH_REDIRECT: string;
+
+  CHAT: any;
 };
 
 export type AppHonoType = { Bindings: Bindings; Variables: AppVariables };
