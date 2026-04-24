@@ -81,3 +81,19 @@ Params:
 |--------|--------|--------|--------|
 | author | 著者 | string |  |
 | content | 内容 | string |  |
+
+
+## チャット
+
+
+### WebSocket接続
+
+Method: GET
+
+URI: /chat/ws/:room
+
+Params:
+
+| 項目名 | 内容 | 型 | 詳細 |
+|--------|--------|--------|--------|
+| room | ルーム | string |  |
