@@ -9,6 +9,8 @@ pnpm: 8787
 
 -----------------------------------
 
+cd ~/workspace/github/astro-app-worker/src
+
 pnpm dev
 
 http://localhost:8787/
